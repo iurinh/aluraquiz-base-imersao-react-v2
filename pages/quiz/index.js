@@ -1,13 +1,14 @@
 import React from 'react';
 
-import db from '../db.json';
-import AlternativesForm from '../src/components/AlternativeForm';
-import Button from '../src/components/Button';
-import GitHubCorner from '../src/components/GitHubCorner';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizLogo from '../src/components/QuizLogo';
-import Widget from '../src/components/Widget';
+import db from '../../db.json';
+import AlternativesForm from '../../src/components/AlternativeForm';
+import BackLinkArrow from '../../src/components/BackLinkArrow';
+import Button from '../../src/components/Button';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuizLogo from '../../src/components/QuizLogo';
+import Widget from '../../src/components/Widget';
 
 function ResultWidget({ results }) {
   return (
@@ -64,6 +65,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h1>
           {`Pergunta ${pos + 1} de ${total}`}
         </h1>
@@ -159,7 +161,7 @@ export default function QuizPage() {
   function handleSubmit() {
     const next = pos + 1;
 
-    if (next < total) setPos(pos + 1);
+    if (next < total) setPos(next);
     else setScreenState(states.RESULT);
   }
 
